@@ -61,6 +61,12 @@ export const Animal = () => {
       <Title>{animal.latinName}</Title>
       <img src={animal.imageUrl} alt={animal.latinName} />
       <div>
+        <StyledButton
+          onClick={feed}
+          show={show}
+        >
+          Mata {animal.name}
+        </StyledButton>
         <LongInfo>
           {animal.longDescription}
           <span>
@@ -82,12 +88,6 @@ export const Animal = () => {
             {" " + time.toUTCString()}
           </span>
         </h3>
-        <StyledButton
-          onClick={feed}
-          show={show}
-        >
-          Mata {animal.name}
-        </StyledButton>
       </div>
     </AnimalInfo>
   )
