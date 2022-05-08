@@ -18,6 +18,7 @@ export const AnimalContainer = styled.div`
         max-width: 40rem;
         max-height: 10rem;
         object-fit: cover;
+        border-radius: 5px;
     }
 `;
 
@@ -32,7 +33,6 @@ export const AnimalInfo = styled.div`
     margin-top: 2rem;
     
     h1 {
-        text-align: center;
         position: absolute;
         top: 0;
         left: 25px;
@@ -41,9 +41,24 @@ export const AnimalInfo = styled.div`
         padding: 5px 20px 10px 0;
     }
 
+    h3 {
+        text-align: center;
+        font-size: 2rem;
+        font-weight: 200;
+        margin: .5rem 0;
+    }
+
     img {
         width: 90%;
         border-radius: 15px;
         margin: auto;
+    }
+
+    div {
+        position: absolute;
+        bottom: -15rem;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
     }
 `;

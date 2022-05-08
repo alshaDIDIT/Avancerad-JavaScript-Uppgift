@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom';
 import { animalList, getLastAteDateFromStorage, now } from '../config/AppExports';
 import { IAnimal } from '../models/IAnimal';
+import { LongInfo } from '../styled/Info';
 import { StyledButton } from '../styled/StyledButton';
 import { AnimalInfo, Container } from '../styled/StyledContainer';
 import { Title } from '../styled/StyledHeader';
@@ -59,14 +60,35 @@ export const Animal = () => {
     <AnimalInfo>
       <Title>{animal.latinName}</Title>
       <img src={animal.imageUrl} alt={animal.latinName} />
-      <p>{animal.longDescription}</p>
-      <p>{time.toUTCString()}</p>
-      <StyledButton
-        onClick={feed}
-        show={show}
-      >
-        Mata {animal.name}
-      </StyledButton>
+      <div>
+        <LongInfo>
+          {animal.longDescription}
+          <span>
+          {animal.name + "s "}
+          födelseår:
+          {" " + animal.yearOfBirth}
+          <br /><br />
+          {animal.name + "s "}
+          medicin:
+          {" " + animal.medicine}
+          </span>
+        </LongInfo>
+        <h3>
+          <span>
+            {animal.name + " "}
+          </span> 
+          matades senast:
+          <span>
+            {" " + time.toUTCString()}
+          </span>
+        </h3>
+        <StyledButton
+          onClick={feed}
+          show={show}
+        >
+          Mata {animal.name}
+        </StyledButton>
+      </div>
     </AnimalInfo>
   )
 }
