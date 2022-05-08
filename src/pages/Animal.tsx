@@ -24,7 +24,6 @@ export const Animal = () => {
   const [show, setShow] = useState<string>("");
 
   let params = useParams();
-  let lastAte: Date;
 
   let theAnimal: IAnimal = animalList.filter(function (thisAnimal) {
     return thisAnimal.id.toString() == params.id;
@@ -33,10 +32,8 @@ export const Animal = () => {
 
   useEffect(() => {
     setAnimal(theAnimal);
-    lastAte = getLastAteDateFromStorage(lastAte, theAnimal);
-    setTime(lastAte);
 
-    if (now.valueOf() - lastAte.valueOf() > 3600000 * 3) {
+    if (now.valueOf() - getLastAteDateFromStorage(animal.lastFed, theAnimal).valueOf() > 3600000 * 3) {
       animalList[index].isFed = false;
       localStorage.setItem('listOfAnimals', JSON.stringify(animalList));
       setShow("block");

@@ -1,10 +1,9 @@
-import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom';
-import { animalList } from '../config/AppExports';
+import { useEffect, useState } from 'react'
+import { WithOutWarning } from '../components/WithOutWarning';
+import { WithWarning } from '../components/WithWarning';
+import { animalList, getLastAteDateFromStorage, now } from '../config/AppExports';
 import { IAnimal } from '../models/IAnimal';
-import { Info } from '../styled/Info';
-import { AnimalContainer, Container } from '../styled/StyledContainer';
-import { Heading2 } from '../styled/StyledHeader';
+import { Container } from '../styled/StyledContainer';
 
 export const Animals = () => {
   const [animals, setAnimals] = useState<IAnimal[]>([]);
@@ -19,14 +18,44 @@ export const Animals = () => {
     <Container>
     {
       animals.map((animal) => {
+        if (
+            now // from /config/AppExports (gets new Date)
+              .valueOf()
+            -
+            getLastAteDateFromStorage(animal.lastFed, animal) // from /config/AppExports
+              .valueOf()
+            >=
+            3600000 * 4 // 1 Hour x 4
+          ) {
+          return (
+            <WithWarning
+              id={animal.id}
+              name={animal.name}
+              imageUrl={animal.imageUrl}
+              shortDescription={animal.shortDescription}
+              isFed={animal.isFed}
+              lastFed={animal.lastFed}
+              latinName={animal.latinName}
+              longDescription={animal.longDescription}
+              medicine={animal.medicine}
+              yearOfBirth={animal.yearOfBirth}
+            />
+          )
+        }
+
         return (
-          <AnimalContainer key={animal.id} className='img-container'>
-            <Link to={"/animal/" + animal.id}>
-              <Heading2>{animal.name}</Heading2>
-              <img src={animal.imageUrl} alt={animal.latinName} />
-              <Info>{animal.shortDescription}</Info>
-            </Link>
-          </AnimalContainer>
+          <WithOutWarning 
+            id={animal.id}
+            name={animal.name}
+            imageUrl={animal.imageUrl}
+            shortDescription={animal.shortDescription}
+            isFed={animal.isFed}
+            lastFed={animal.lastFed}
+            latinName={animal.latinName}
+            longDescription={animal.longDescription}
+            medicine={animal.medicine}
+            yearOfBirth={animal.yearOfBirth}
+          />
         )
       })
     }

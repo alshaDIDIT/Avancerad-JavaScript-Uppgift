@@ -17,6 +17,7 @@ export function toggleList() {
     return animalList;
 }
 
+// (formats date from localstorage)
 export function getLastAteDateFromStorage(lasteAte: Date, theAnimal: IAnimal): Date {
     lasteAte = theAnimal.lastFed;
     lasteAte = new Date(lasteAte);

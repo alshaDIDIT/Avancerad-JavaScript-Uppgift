@@ -12,6 +12,16 @@ export const Container = styled.div`
 export const AnimalContainer = styled.div`
     max-width: 20rem;
     position: relative;
+    margin: 1rem 0 -1rem 0;
+
+    h2 {
+        position: absolute;
+        top: 2.5px;
+        left: 2.5px;
+        background-color: white;
+        padding: .2rem .5rem;
+        border-radius: 5px;
+    }
 
     img {
         min-width: 20rem;
