@@ -82,7 +82,7 @@ export const Animal = () => {
           </span> 
           matades senast:
           <span>
-            {" " + time.toUTCString()}
+            {" " + getLastAteDateFromStorage(animal.lastFed, animal).toUTCString()}
           </span>
         </h3>
       </div>

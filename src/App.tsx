@@ -7,7 +7,7 @@ import { Layout } from './pages/Layout';
 import { NotFound } from './pages/NotFound';
 
 function App() {
-  toggleList(); // function in config/AppExports
+  toggleList(); // function in config/AppExports (Sets the animal list in localstorage)
 
   return (
     <BrowserRouter>
