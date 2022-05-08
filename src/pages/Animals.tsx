@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
 import { animalList } from '../config/AppExports';
 import { IAnimal } from '../models/IAnimal';
+import { Info } from '../styled/Info';
 import { AnimalContainer, Container } from '../styled/StyledContainer';
 import { Heading2 } from '../styled/StyledHeader';
 
@@ -23,7 +24,7 @@ export const Animals = () => {
             <Link to={"/animal/" + animal.id}>
               <Heading2>{animal.name}</Heading2>
               <img src={animal.imageUrl} alt={animal.latinName} />
-              <p>{animal.shortDescription}</p>
+              <Info>{animal.shortDescription}</Info>
             </Link>
           </AnimalContainer>
         )
