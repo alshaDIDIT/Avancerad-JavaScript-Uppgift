@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-    max-width: 95rem;
+    max-width: 1024px;
     margin: auto;
     display: flex;
     flex-wrap: wrap;
@@ -21,6 +21,7 @@ export const AnimalContainer = styled.div`
         background-color: white;
         padding: .2rem .5rem;
         border-radius: 5px;
+        box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.4);
     }
 
     img {
@@ -29,6 +30,7 @@ export const AnimalContainer = styled.div`
         max-height: 10rem;
         object-fit: cover;
         border-radius: 5px;
+        box-shadow: 1px 2px rgba(0, 0, 0, 0.2);
     }
 `;
 

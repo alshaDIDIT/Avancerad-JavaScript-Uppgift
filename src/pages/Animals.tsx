@@ -19,6 +19,7 @@ export const Animals = () => {
     {
       animals.map((animal) => {
         if (
+          // ---- IF START ----
             now // from /config/AppExports (gets new Date)
               .valueOf()
             -
@@ -26,6 +27,7 @@ export const Animals = () => {
               .valueOf()
             >=
             3600000 * 4 // 1 Hour x 4
+          // ---- IF ENDS ----
           ) {
           return (
             <WithWarning
