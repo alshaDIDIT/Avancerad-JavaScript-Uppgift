@@ -1,11 +1,25 @@
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
 import { Parent } from './components/Parent';
+import { toggleList } from './config/AppExports';
+import { Animal } from './pages/Animal';
+import { Animals } from './pages/Animals';
+import { Layout } from './pages/Layout';
+import { NotFound } from './pages/NotFound';
 
 function App() {
+  toggleList(); // function in config/AppExports
+
   return (
-    <div className="App">
-      <Parent />
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<Layout />}>
+          <Route index element={<Animals />}></Route>
+          <Route path='animal/:id' element={<Animal />}></Route>
+          <Route path='*' element={<NotFound />}></Route>
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
