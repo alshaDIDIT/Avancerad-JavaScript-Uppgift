@@ -1,6 +1,5 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
-import { Parent } from './components/Parent';
 import { toggleList } from './config/AppExports';
 import { Animal } from './pages/Animal';
 import { Animals } from './pages/Animals';
